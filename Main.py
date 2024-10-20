@@ -5,6 +5,7 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore
 
 
+
 #embedding or something
 template = """
 Conversation history: {context}
@@ -13,9 +14,10 @@ Question: {question}
 About you(The AI): {AI_introduction}
 """
 
-model = OllamaLLM(model="llama3")
+model = OllamaLLM(model="llama3", stream=True)
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
+
     
 def handle_conversation():
     context = ""
@@ -42,4 +44,5 @@ def handle_conversation():
 
 
 if __name__ == "__main__":
+
     handle_conversation()

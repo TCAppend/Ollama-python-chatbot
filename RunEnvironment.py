@@ -1,0 +1,1 @@
+print(".\MainBot\Scripts\Activate.ps1")
