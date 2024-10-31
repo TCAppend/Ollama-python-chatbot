@@ -1,6 +1,8 @@
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaEmbeddings
+import pickle
+import json
 # Vector import
 from langchain_core.vectorstores import InMemoryVectorStore
 
@@ -41,6 +43,10 @@ def handle_conversation():
         print("Bot: ", result)
         
         context += f"\nUser: {user_input}\nAI: {result}"
+
+#Test this if it works, i have no more storage :cry:
+    with open('data.pickle', 'wb') as file:
+        pickle.dump(context, file)
 
 
 if __name__ == "__main__":
