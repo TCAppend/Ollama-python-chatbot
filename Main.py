@@ -6,16 +6,28 @@ import json
 # Vector import
 from langchain_core.vectorstores import InMemoryVectorStore
 
-
-
-#embedding or something
+#embedding 
 template = """
 Conversation history: {context} 
 Name(User): {name}
 Question: {question}
 About you(The AI): {AI_introduction}
+
+Answer: 
 """
 
+#database
+db = {}
+db ['template'] = template
+
+#binary mode
+dbfile = open('examplePickle', 'ab')
+
+# source, destination
+pickle.dump(db, dbfile)                    
+dbfile.close()
+
+#LL model
 model = OllamaLLM(model="llama3", stream=True)
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
@@ -34,7 +46,7 @@ def handle_conversation():
         result = chain.invoke(
                 {
                     "AI_introduction": AI_introduction, 
-                    "name": nameuser,
+                    "name": nameuser, 
                     "context": context, 
                     "question": user_input
                 }
@@ -43,10 +55,6 @@ def handle_conversation():
         print("Bot: ", result)
         
         context += f"\nUser: {user_input}\nAI: {result}"
-
-#Test this if it works, i have no more storage :cry:
-    with open('data.pickle', 'wb') as file:
-        pickle.dump(context, file)
 
 
 if __name__ == "__main__":
