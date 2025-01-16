@@ -1,6 +1,9 @@
 Ollama(To run LLMs locally): 
         https://ollama.com/download
 
+Install llama3 in terminal:
+        ollama run llama3
+
 
 Setup environment:
 
@@ -11,7 +14,6 @@ Setup environment:
 Required Libraries:
 
         pip install langchain langchain-ollama ollama
-
 
 debugging:(If Permission isn't allowing local machine to opperate)
 
