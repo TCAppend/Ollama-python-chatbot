@@ -10,7 +10,7 @@ from langchain_core.vectorstores import InMemoryVectorStore
 
 #embedding or something
 template = """
-Conversation history: {context}
+Conversation history: {context} 
 Name(User): {name}
 Question: {question}
 About you(The AI): {AI_introduction}
