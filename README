@@ -15,7 +15,7 @@ Required Libraries:
 
         pip install langchain langchain-ollama ollama
 
-debugging:(If Permission isn't allowing local machine to opperate)
+debugging:(If Permission isn't allowing local machine to operate)
 
         Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 
